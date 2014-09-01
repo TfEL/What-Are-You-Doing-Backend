@@ -40,6 +40,7 @@ echo <<<EOF
         width:100%;
         border:0px;
     }
+    .container { max-width: 746px; }
     .container-fluid {
         max-width: 1220px;
     }
