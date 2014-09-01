@@ -60,26 +60,6 @@ if ($ssl == false) {
 
   </head>
   <body>
-    <div class="header">
-        <div class="container-fluid">
-            <img src="/resources/wrud_banner.png">
-        </div>
-      </div>
-	<div class="navbar navbar-default" role="navigation"> 
-        <div class="container-fluid">
-	<div class="navbar-right"></div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/login.php">Login</a></li>
-              <li><a href="/register.php">Register</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-				
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </div>
     <div class="container">
 	<h1 style="color: #ec5945;">Login</h1>
 	<p>Login to use the What are you Doing dashboard.</p>
