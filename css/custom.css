@@ -1,0 +1,9 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: url("/teacher/css/background-img.png") no-repeat bottom left fixed;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
