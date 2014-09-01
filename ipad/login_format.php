@@ -4,8 +4,8 @@
 // © 2014 Department for Education and Child Development
 
 // @Requries - uses the settings from the API for centralisation
-require './api/settings.php';
-require './api/api.fnc.php';
+require '../api/settings.php';
+require '../api/api.fnc.php';
 
 // @Headers
 date_default_timezone_set("Australia/Adelaide");
@@ -21,7 +21,7 @@ $cleanData['password'] = $socket->real_escape_string(filter_var($_POST['password
 
 // @Inref Functions
 function return_failed() {
-    header('Location: /login.php?ssl=true&failed=true');
+    header('Location: ./login.php?ssl=true&failed=true');
 }
 
 function fix_time($timeString) {
@@ -61,7 +61,7 @@ try {
                         document.cookie="emailAddress=' .$returnKeys[emailaddress] . '; expires=' . $time . '; secure";
                         document.cookie="firstName=' . $returnKeys[firstname] . '; expires=' . $time . '; secure";
                         document.cookie="loginStamped=until; expires=' . $time . '; secure";
-                        window.location="https://wrud.tfel.edu.au/?loggedin";
+                        window.location="https://wrud.tfel.edu.au/api/API_LoginData.php?loggedin";
                     </script>';
             } else {
                 return_failed();
