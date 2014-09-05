@@ -52,3 +52,5 @@ foreach ($result as $key => $value) {
 }
 
 echo json_encode($array);
+
+?>
