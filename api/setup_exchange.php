@@ -14,6 +14,22 @@ require 'api.fnc.php';
 // @Inbound getters
 $classcodeUnclean = $_GET['challenge'];
 
+// Dummy code
+
+if ($classcodeUnclean == "8883cc34") {
+        $return = array( "classcode" => $result['classcode'],
+                "groupOneText" => "A: $groupOneArray[0] \nB: $groupOneArray[1] \nC: $groupOneArray[2] \nD: $groupOneArray[3] \nE: $groupOneArray[4] \nF: $groupOneArray[5] \nG: $groupOneArray[6]",
+                "groupTwoText" => "A: $groupTwoArray[0] \nB: $groupTwoArray[1] \nC: $groupTwoArray[2] \nD: $groupTwoArray[3] \nE: $groupTwoArray[4] \nF: $groupTwoArray[5] \nG: $groupTwoArray[6]",
+                "groupThreeText" => "A: $groupThreeArray[0] \nB: $groupThreeArray[1] \nC: $groupThreeArray[2] \nD: $groupThreeArray[3] \nE: $groupThreeArray[4] \nF: $groupThreeArray[5] \nF: $groupThreeArray[6]",
+                "firstTimer" => $timer[0],
+                "studentIdentification" => generateRandomString(),
+                "message" => null,
+                "return" => "success", );
+        echo json_encode($return, JSON_PRETTY_PRINT);
+        die();
+}
+
+
 // @Inref Functions
 function return_failed($message = null) {
     if (!is_null(message)) {
@@ -74,20 +90,6 @@ if (is_null($result)) { return_failed("No class matched that key, try typing it 
 }
 
 // Build the return
-
-if ($classcode == "8883cc34") {
-	$return = array( "classcode" => $result['classcode'],
-                "groupOneText" => "A: $groupOneArray[0] \nB: $groupOneArray[1] \nC: $groupOneArray[2] \nD: $groupOneArray[3] \nE: $groupOneArray[4] \nF: $groupOneArray[5] \nG: $groupOn$
-                "groupTwoText" => "A: $groupTwoArray[0] \nB: $groupTwoArray[1] \nC: $groupTwoArray[2] \nD: $groupTwoArray[3] \nE: $groupTwoArray[4] \nF: $groupTwoArray[5] \nG: $groupTw$
-                "groupThreeText" => "A: $groupThreeArray[0] \nB: $groupThreeArray[1] \nC: $groupThreeArray[2] \nD: $groupThreeArray[3] \nE: $groupThreeArray[4] \nF: $groupThreeArray[5]$
-                "firstTimer" => $timer[0],
-                "studentIdentification" => generateRandomString(),
-                "message" => null,
-                "return" => "success", );
-
-	echo json_encode($return, JSON_PRETTY_PRINT);
-	die();
-}
 
 $timersArray = json_decode($result['timersGroup'], true);
 foreach ($timersArray as $key => $value) {
