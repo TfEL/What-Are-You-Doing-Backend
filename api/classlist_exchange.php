@@ -6,7 +6,7 @@
 require "authentication_header.fnc.php";
 
 // @Content-Types
-header("Content-Type: text/plain");
+header("Content-Type: application/json");
 date_default_timezone_set("Australia/Adelaide");
 
 // @Requires
@@ -36,21 +36,19 @@ function return_failed($message = null) {
 try { 
 	$db = configure_active_database();
 	$socket = ConnectToDatabase($db);
-	$query = MakeDatabaseQuery("SELECT * FROM `classlist` WHERE `classcode`=\"$classcode\" AND `archived`='0';", $socket) or return_failed();
-	$result = MakeDatabaseFetch($query);
-	if (is_null($result)) { return_failed("(DB Exception) null result"); }
+	$result = MakeDatabaseQuery("SELECT * FROM `classlist` WHERE `archived`='0';", $socket) or return_failed();
 } catch (Exception $e) {
     return_failed("(DB Exception) $e");
 }
 
+$i = 0;
+
+$array = array();
+
 foreach ($result as $key => $value) { 
-	echo $key . " " . $value;
+	array_push($array, array ("id" => $i,
+	 						"classcode" => $value["classcode"]));
+	$i++;
 }
-
-$array = array( array("id" => "1", 
-		"classcode" => "8883cc34"), 
-		array("id" => "2", 
-		"classcode" => "828f2c23"), );
-
 
 echo json_encode($array);

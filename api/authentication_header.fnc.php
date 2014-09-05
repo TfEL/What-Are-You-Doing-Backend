@@ -1,6 +1,6 @@
 <?php
 
-$realm = 'Restricted area';
+$realm = 'Private API - contact aidancornelius@research.tfel.edu.au for info';
 
 //user => password
 $users = array('justpast' => 'midnight',);
