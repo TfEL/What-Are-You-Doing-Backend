@@ -1,5 +1,7 @@
 <?php
 
+die("Deprecated September 2014");
+
 // © 2014 Department for Education and Child Development
 // This exchanges the INITIAL SETUP of the xyz client.
 

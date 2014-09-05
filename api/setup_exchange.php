@@ -4,7 +4,7 @@
 // This exchanges the INITIAL SETUP of the xyz client.
 
 // @Content-Types
-header("Content-Type: text/plain");
+header("Content-Type: application/json");
 date_default_timezone_set("Australia/Adelaide");
 
 // @Requires
