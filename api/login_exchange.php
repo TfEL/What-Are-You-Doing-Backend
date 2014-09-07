@@ -21,7 +21,7 @@ $cleanData['emailaddress'] = $socket->real_escape_string(filter_var($_POST['emai
 $cleanData['password'] = $socket->real_escape_string(filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
 
 // @Inref Functions
-function return_failed($message = null) {
+function return_failed($message = "Login failed, please check your details and try again.") {
     if (!is_null(message)) {
         $return = array( "message" => "$message", "return" => "fail" );
     } else {
