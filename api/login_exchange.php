@@ -4,8 +4,9 @@
 // © 2014 Department for Education and Child Development
 
 // @Requries - uses the settings from the API for centralisation
-require './api/settings.php';
-require './api/api.fnc.php';
+require 'settings.php';
+require 'api.fnc.php';
+require "authentication_header.fnc.php";
 
 // @Headers
 date_default_timezone_set("Australia/Adelaide");
@@ -20,10 +21,15 @@ $cleanData['emailaddress'] = $socket->real_escape_string(filter_var($_POST['emai
 $cleanData['password'] = $socket->real_escape_string(filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
 
 // @Inref Functions
-function return_failed() {
-    header('Location: /login.php?ssl=true&failed=true');
+function return_failed($message = null) {
+    if (!is_null(message)) {
+        $return = array( "message" => "$message", "return" => "fail" );
+    } else {
+        $return = array( "return" => "fail" );
+    }
+    echo json_encode($return, JSON_PRETTY_PRINT);
+    die();   
 }
-
 function fix_time($timeString) {
     try {
         // COOKIE TIME FIXER!!!!!
@@ -57,12 +63,11 @@ try {
                 
                 $time = fix_time(time()+9000);
                 
-                echo '<script type="text/javascript">
-                        document.cookie="emailAddress=' .$returnKeys[emailaddress] . '; expires=' . $time . '; secure";
-                        document.cookie="firstName=' . $returnKeys[firstname] . '; expires=' . $time . '; secure";
-                        document.cookie="loginStamped=until; expires=' . $time . '; secure";
-                        window.location="https://wrud.tfel.edu.au/?loggedin";
-                    </script>';
+                $return = array( "emailAddress" =>  $returnKeys[emailaddress],
+ 								 "firstName" => $returnKeys[firstname],
+ 								 "password" => $returnKeys[password], );
+				echo json_encode($return, JSON_PRETTY_PRINT);
+				
             } else {
                 return_failed();
             }
