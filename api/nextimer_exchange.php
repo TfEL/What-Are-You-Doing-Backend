@@ -1,13 +1,15 @@
 <?php
 
-die("Deprecated September 2014");
+
 
 // © 2014 Department for Education and Child Development
 // This exchanges the INITIAL SETUP of the xyz client.
 
 // @Content-Types
-header("Content-Type: text/plain");
+header("Content-Type: application/json");
 date_default_timezone_set("Australia/Adelaide");
+
+die("{\"Deprecated September 2014\"}");
 
 // @Requires
 require 'settings.php';

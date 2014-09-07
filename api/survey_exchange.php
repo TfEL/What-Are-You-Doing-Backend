@@ -4,12 +4,12 @@
 // This exchanges the INITIAL SETUP of the xyz client.
 
 // @Content-Types
-header("Content-Type: application/json");
 date_default_timezone_set("Australia/Adelaide");
 
 // @Requires
 require 'settings.php';
 require 'api.fnc.php';
+require "authentication_header.fnc.php";
 
 // @Inbound getters
 $classcodeUnclean = $_GET['classcode'];
