@@ -75,7 +75,7 @@ if (is_null($result)) { return_failed("Survey Error: Class has closed."); }
 
 // Set variables we need, that we can't get from the client...
 $teacherOwner = $result["owner"];
-$timeSubmitted = fix_time(time()+80);
+$timeSubmitted = fix_time(time());
 
 // @Query Phase Three (Build query)
 $query = "INSERT INTO `wrud`.`studentlist` (`id`, `created`, `teacherOwner`, `classcode`, `studentIdentification`, `submittedKey`) VALUES (NULL, '$timeSubmitted', '$teacherOwner', '$classcode', '$studentid', '$submitteddata');";

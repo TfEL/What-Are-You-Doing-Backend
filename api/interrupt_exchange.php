@@ -1,7 +1,6 @@
 <?php
 
 // © 2014 Department for Education and Child Development
-// This exchanges the INITIAL SETUP of the xyz client.
 
 // @Content-Types
 date_default_timezone_set("Australia/Adelaide");
